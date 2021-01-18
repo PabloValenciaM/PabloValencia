@@ -21,6 +21,12 @@ table(Encuesta_Nacional_UDP_2015$P23REC)
 # 2.3 Pregunta 5
 Encuesta_Nacional_UDP_2015$P5REC = revalue(Encuesta_Nacional_UDP_2015$P5, c("1"="1", "2"="1", "3"="0", "4"="0", "5"="0", "8"="0", "9"="0"))
 table(Encuesta_Nacional_UDP_2015$P5REC)
+# 2.4 Pregunta P26E
+Encuesta_Nacional_UDP_2015$P26EREC = revalue(Encuesta_Nacional_UDP_2015$P26E, c("1"="1", "2"="0", "3"="0", "4"="0", "8"="0", "9"="0"))
+table(Encuesta_Nacional_UDP_2015$P26EREC)
+# 2.5 Pregunta p26G
+Encuesta_Nacional_UDP_2015$P26GREC = revalue(Encuesta_Nacional_UDP_2015$P26G, c("1"="1", "2"="0", "3"="0", "4"="0", "8"="0", "9"="0"))
+table(Encuesta_Nacional_UDP_2015$P26GREC)
 # 5. Instalar Paquete "Stargazer"
 install.packages("stargazer")
 library(stargazer)
