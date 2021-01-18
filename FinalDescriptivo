@@ -1,0 +1,91 @@
+# Ver base de datos
+View(Encuesta_Nacional_UDP_2015)
+# Instalar Paquetes
+library(tidyverse)
+library(dplyr)
+library(dslabs)
+library(tidyr)
+# 1. Descripción Variable Dependiente. Pregunta P13
+table(Encuesta_Nacional_UDP_2015$P13)
+prop.table(table(Encuesta_Nacional_UDP_2015$P13))*100
+SatisDemoP <- prop.table(table(Encuesta_Nacional_UDP_2015$P13))*100
+table(SatisDemoP)
+write.csv2(SatisDemoP, file = "satisdemop.csv")
+# 2. Descripción VariableS Independientes
+# 2.1 Pregunta p26D
+table(Encuesta_Nacional_UDP_2015$P26D)
+prop.table(table(Encuesta_Nacional_UDP_2015$P26D))*100
+ConfianzaGobP<- prop.table(table(Encuesta_Nacional_UDP_2015$P26D))*100
+table(ConfianzaGobP)
+write.csv2(ConfianzaGobP, file = "confgob.csv")
+# 2.2 Pregunta P23
+table(Encuesta_Nacional_UDP_2015$P23)
+prop.table(table(Encuesta_Nacional_UDP_2015$P23))*100
+IdenPolP <- prop.table(table(Encuesta_Nacional_UDP_2015$P26D))*100
+table(IdenPolP)
+write.csv2(IdenPolP, file = "Idenpol.csv")
+# 2.3 Pregunta P5
+table(Encuesta_Nacional_UDP_2015$P5)
+prop.table(table(Encuesta_Nacional_UDP_2015$P5))*100
+SatisecomP <- prop.table(table(Encuesta_Nacional_UDP_2015$P5))*100
+table(SatisecomP)
+write.csv2(SatisecomP, file = "Econom.csv")
+# 2.4 Pregunta P26E
+table(Encuesta_Nacional_UDP_2015$P26E)
+prop.table(table(Encuesta_Nacional_UDP_2015$P26E))*100
+ConfianzaCongreP <- prop.table(table(Encuesta_Nacional_UDP_2015$P26E))*100
+table(ConfianzaCongreP)
+write.csv2(ConfianzaCongreP, file = "congreso.csv")
+# 2.5 Pregunta P26G
+table(Encuesta_Nacional_UDP_2015$P26G)
+prop.table(table(Encuesta_Nacional_UDP_2015$P26G))*100
+ConfianzaTribP <- prop.table(table(Encuesta_Nacional_UDP_2015$P26G))*100
+table(ConfianzaTribP)
+write.csv2(ConfianzaTribP, file = "tribunales.csv")
+# 3. Tablas de Contingencia
+# 3.1 Pregunta13*Pregunta P26D
+table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26D)
+prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26D))*100
+GobiernoDemoP <- prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26G))*100
+table(GobiernoDemoP)
+write.csv2(GobiernoDemoP, file = "gobdemo.csv")
+
+# 3.2 Pregunta13*Pregunta P23
+table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P23)
+prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P23))*100
+IdentifDemoP <- prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P23))*100
+table(IdentifDemoP)
+write.csv2(IdentifDemoP, file = "identdemo.csv")
+
+# 3.3 Pregunta13*Pregunta P5
+table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P5)
+prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P5))*100
+EconDemoP <- prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P5))*100
+table(EconDemoP)
+write.csv2(EconDemoP, file = "Econdemo.csv")
+
+# 3.4 Pregunta13*Pregunta P26E
+table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26E)
+prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26E))*100
+CongreDemoP <- prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26E))*100
+table(CongreDemoP)
+write.csv2(CongreDemoP, file = "congredemo.csv")
+
+# 3.5 Pregunta 13*Pregunta P26G
+table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26G)
+prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26G))*100
+Tribunalesdemo <- prop.table(table(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26G))*100
+table(Tribunalesdemo)
+write.csv2(Tribunalesdemo, file = "tribunalesdemo.csv")
+
+# 4. Prueba de Correlación
+# 4.1 Pregunta 13*Pregunta P26D
+cor.test(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26D)
+# 4.2 Pregunta 13*Pregunta P23
+cor.test(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P23)
+# 4.3 Pregunta 13*Pregunta P5
+cor.test(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P5)
+# 4.4 Pregunta 13*Pregunta P26E
+cor.test(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26E)
+# 4.4 Pregunta 13*Pregunta P26G
+cor.test(Encuesta_Nacional_UDP_2015$P13, Encuesta_Nacional_UDP_2015$P26G)
